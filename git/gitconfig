@@ -1,0 +1,10 @@
+[user]
+	name = Xing Zhou
+	email = xing@xingzhou.me
+[core]
+	editor = vim
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
