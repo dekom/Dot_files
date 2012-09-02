@@ -1,13 +1,14 @@
 #! /bin/sh
 
-ln -s $(pwd)/bash/bash_profile $HOME/.bash_profile
-ln -s $(pwd)/bash/bashrc $HOME/.bashrc
-ln -s $(pwd)/bash/profile $HOME/.profile
+ln -sin $(pwd)/bash/bash_profile $HOME/.bash_profile
+ln -sin $(pwd)/bash/bashrc $HOME/.bashrc
+ln -sin $(pwd)/bash/profile $HOME/.profile
 
-ln -s $(pwd)/git/gitconfig $HOME/.gitconfig
+ln -sin $(pwd)/git/gitconfig $HOME/.gitconfig
+ln -sin $(pwd)/git/gitignore $HOME/.gitignore
 
-ln -s $(pwd)/vim-files/vim $HOME/.vim
-ln -s $(pwd)/vim-files/vim/vimrc $HOME/.vimrc
+ln -sin $(pwd)/vim-files/vim $HOME/.vim
+ln -sin $(pwd)/vim-files/vim/vimrc $HOME/.vimrc
 
-ln -s $(pwd)/zsh/zsh $HOME/.zsh
-ln -s $(pwd)/zsh/zshrc $HOME/.zshrc
+ln -sin $(pwd)/zsh/zsh $HOME/.zsh
+ln -sin $(pwd)/zsh/zshrc $HOME/.zshrc

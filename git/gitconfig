@@ -3,6 +3,7 @@
 	email = xing@xingzhou.me
 [core]
 	editor = vim
+	excludesfile = /home/xing/.gitignore/Global/vim.gitignore
 [color]
 	status = auto
 	branch = auto
