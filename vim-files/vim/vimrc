@@ -32,7 +32,6 @@ set laststatus=2
 
 "set relativenumber
 set number
-set relativenumber
 
 "set undofile
 set shell=/bin/zsh
