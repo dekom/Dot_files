@@ -34,6 +34,10 @@ ZSH_THEME="dekom"
 plugins=(git archlinux bundler ruby gem node python rails3 rvm bundler heroku npm vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt interactive_comments
+setopt no_clobber
 
 # Customizations
 EDITOR='$(which vim)'
