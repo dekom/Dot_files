@@ -9,3 +9,5 @@
 	branch = auto
 	interactive = auto
 	diff = auto
+[github]
+	user = dekom

@@ -33,16 +33,16 @@ ZSH_THEME="dekom"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git archlinux bundler ruby gem node python rails3 rvm bundler heroku npm vi-mode)
 
-source $ZSH/oh-my-zsh.sh
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt interactive_comments
 setopt no_clobber
+source $ZSH/oh-my-zsh.sh
 
 # Customizations
 EDITOR='$(which vim)'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Aliases
 alias ls='ls -p'
@@ -55,3 +55,4 @@ eval $(ssh-agent) &> /dev/null
 
 # Customize to your needs...
 #export PATH=/home/xing/.rvm/gems/ruby-1.9.3-p194/bin:/home/xing/.rvm/gems/ruby-1.9.3-p194@global/bin:/home/xing/.rvm/rubies/ruby-1.9.3-p194/bin:/home/xing/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/xing/.rvm/bin
+eval "$(hub alias -s)"
