@@ -12,3 +12,6 @@ ln -sin $(pwd)/vim-files/vim/vimrc $HOME/.vimrc
 
 ln -sin $(pwd)/zsh/zsh $HOME/.zsh
 ln -sin $(pwd)/zsh/zshrc $HOME/.zshrc
+
+ln -sin $(pwd)/Xresources $HOME/.Xresources
+ln -sin $(pwd)/xinitrc $HOME/.xinitrc

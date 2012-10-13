@@ -1,0 +1,12 @@
+xterm*borderWidth: 0
+xterm*background: #000
+xterm*foreground: #888
+xterm*termName: xterm-256color
+xterm*faceName: Bitstream Vera Sans Mono
+xterm*faceSize: 8
+
+*VT100.colorBDMode: true
+*VT100.colorBD: red
+*VT100.colorULMode: true
+*VT100.colorUL: cyan
+*VT100.verBoldColors: 6
