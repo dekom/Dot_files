@@ -107,9 +107,6 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Map : to ; also in command mode.
-nnoremap ; :
-
 " Set vim to save the file on focus out.
 au FocusLost * :wa
 
@@ -232,7 +229,7 @@ fun! EnsureVamIsOnDisk(vam_install_path)
                   \"time ask maintainers to improve documentation")
       call mkdir(a:vam_install_path, 'p')
       execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '.shellescape(a:vam_install_path, 1).'/vim-addon-manager'
-      " VAM runs helptags automatically when you install or update 
+      " VAM runs helptags automatically when you install or update
       " plugins
       exec 'helptags '.fnameescape(a:vam_install_path.'/vim-addon-manager/doc')
     endif
