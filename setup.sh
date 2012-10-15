@@ -15,3 +15,5 @@ ln -sin $(pwd)/zsh/zshrc $HOME/.zshrc
 
 ln -sin $(pwd)/Xresources $HOME/.Xresources
 ln -sin $(pwd)/xinitrc $HOME/.xinitrc
+
+ln -sin $(pwd)/awesome $HOME/.config/awesome
