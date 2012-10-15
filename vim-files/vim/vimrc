@@ -1,9 +1,32 @@
+" Modeline and Notes {
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" }
+
+
+" Enviroment {
+    " Basics {
+      set nocompatible "Allow all vim functions
+    " }
+    
+    " Filetype Workarounds {
+      " https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim/issues/9
+      autocmd BufNewFile,BufRead *.scss set filetype=css
+      autocmd BufNewFile,BufRead *.sass set filetype=css
+    " }
+    
+    " Setup Vundle {
+        filetype on
+        filetype off
+        set rtp+=~/.vim/bundle/vundle
+        call vundle#rc()
+    " }
+" }
+
 
 " ========== Vim Basic Settings ============="
 filetype plugin indent on
 
 " Make vim incompatbile to vi.
-set nocompatible
 set modelines=0
 
 "TAB settings.
