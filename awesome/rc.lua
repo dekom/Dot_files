@@ -6,6 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -71,7 +72,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
 end
 -- }}}
 
@@ -99,6 +100,22 @@ mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
+-- Battery Monitor
+mybattery = widget({ type = "textbox" })
+vicious.register(mybattery, vicious.widgets.bat, " $2%[$1]", 61, "BAT0")
+
+-- Volume Monitor
+mywifi = widget({ type = "textbox" })
+vicious.register( mywifi, vicious.widgets.wifi, 
+                  " ${ssid}:${sign} ", 5, 
+                  "wlan0")
+
+-- Weather Monitor
+myweather = widget({ type = "textbox" })
+vicious.register( myweather, vicious.widgets.weather, 
+                  "(${tempf}F,${tempc}C)", 60*60 + 13,
+                  "KPIT")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -166,6 +183,7 @@ for s = 1, screen.count() do
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
+
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -174,6 +192,9 @@ for s = 1, screen.count() do
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+        myweather,
+        mywifi,
+        mybattery,
         mylayoutbox[s],
         mytextclock,
         s == 1 and mysystray or nil,
