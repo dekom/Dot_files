@@ -7,3 +7,6 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "awesome/themes/nice-and-clean-theme"]
+	path = awesome/themes/nice-and-clean-theme
+	url = git@github.com:dekom/nice-and-clean-theme.git
