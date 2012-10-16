@@ -1,310 +1,146 @@
 " Modeline and Notes {
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: set nospell foldmarker={,} foldlevel=0 foldmethod=marker:
+"
+" This is the personal .vimrc file of Xing Zhou
+" It can be found, along with other configuration files @
+"
+" https://github.com/dekom/Dot_files
+"
+" Inspiration from spf13-vim @
+" https://github.com/spf13/spf13-vim
 " }
-
 
 " Enviroment {
-    " Basics {
-      set nocompatible "Allow all vim functions
-    " }
-    
-    " Filetype Workarounds {
-      " https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim/issues/9
-      autocmd BufNewFile,BufRead *.scss set filetype=css
-      autocmd BufNewFile,BufRead *.sass set filetype=css
-    " }
-    
-    " Setup Vundle {
-        filetype on
-        filetype off
-        set rtp+=~/.vim/bundle/vundle
-        call vundle#rc()
-    " }
+  " Basics {
+    set nocompatible " Allow all vim functions
+    set clipboard=unnamedplus " Linux copy-paste
+  " }
+
+  " Filetype Workarounds {
+    " https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim/issues/9
+    autocmd BufNewFile,BufRead *.scss set filetype=css
+    autocmd BufNewFile,BufRead *.sass set filetype=css
+  " }
+
+  " Load Bundles {
+    if filereadable(expand("~/.vim/bundlesrc"))
+      source ~/.vim/bundlesrc
+    endif
+  " }
 " }
 
+" General {
+  set background=dark         " Assume a dark background
+  filetype plugin indent on   " Automatically detect file types.
+  syntax on                   " syntax highlight
+  set mouse=a                 " automatically enable mouse usage
+  scriptencoding utf-8
 
-" ========== Vim Basic Settings ============="
-filetype plugin indent on
+  set history=10000           " increase history size
+  set spell                   " turn on spellcheck
+  set hidden                  " buffer is hidden instead of abandoned, can switch buffer without saving
 
-" Make vim incompatbile to vi.
-set modelines=0
+  " Setting up the directories {
+    set backup                  " create backup files
 
-"TAB settings.
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
-" More Common Settings.
-set encoding=utf-8
-set scrolloff=3
-set autoindent
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-syntax on
-
-"set cursorline
-set ttyfast
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
-
-"set relativenumber
-set number
-
-"set undofile
-set shell=/bin/zsh
-set lazyredraw
-set matchtime=3
-
-"Changing Leader Key
-let mapleader = "\\"
-
-" Set title to window
-set title
-
-" Dictionary path, from which the words are being looked up.
-set dictionary=/usr/share/dict/words
-
-" Make pasting done without any indentation break."
-set pastetoggle=<F3>
-
-" Make Vim able to edit corntab files again.
-set backupskip=/tmp/*,/private/tmp/*"
-
-" Enable Mouse
-set mouse=a
-
-"Settings for Searching and Moving
-nnoremap / /\v
-vnoremap / /\v
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
-
-
-" Make Vim to handle long lines nicely.
-set wrap
-set textwidth=78
-set formatoptions=qrn1
-set colorcolumn=78
-colorscheme vividchalk
-
-" Borrowed from default vimrc
-if has("autocmd")
-  autocmd FileType text setlocal textwidth=78
-endif " has("autocmd")
-
-" To  show special characters in Vim
-"set list
-set listchars=tab:▸\ ,eol:¬
-
-" Naviagations using keys up/down/left/right
-" Disabling default keys to learn the hjkl
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
-
-" Rope settings."
-inoremap <leader>j <ESC>:RopeGotoDefinition<cr>
-
-" Get Rid of stupid Goddamned help keys
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
-" Set vim to save the file on focus out.
-au FocusLost * :wa
-
-" Adding More Shorcuts keys using leader kye.
-" Leader Kye provide separate namespace for specific commands.
-",W Command to remove white space from a file.
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" ,ft Fold tag, helpful for HTML editing.
-nnoremap <leader>ft vatzf
-
-" ,q Re-hardwrap Paragraph
-nnoremap <leader>q gqip
-
-" ,v Select just pasted text.
-nnoremap <leader>v V`]
-
-" ,ev Shortcut to edit .vimrc file on the fly on a vertical window.
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
-
-" jj For Qicker Escaping between normal and editing mode.
-inoremap jj <ESC>
-
-
-" Working with split screen nicely
-" Resize Split When the window is resized"
-au VimResized * :wincmd =
-
-
-" Wildmenu completion "
-set wildmenu
-set wildmode=list:longest
-set wildignore+=.hg,.git,.svn " Version Controls"
-set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Binary Imgs"
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest "Compiled Object files"
-set wildignore+=*.spl "Compiled speolling world list"
-set wildignore+=*.sw? "Vim swap files"
-set wildignore+=*.DS_Store "OSX SHIT"
-set wildignore+=*.luac "Lua byte code"
-set wildignore+=migrations "Django migrations"
-set wildignore+=*.pyc "Python Object codes"
-set wildignore+=*.orig "Merge resolution files"
-
-" Make Sure that Vim returns to the same line when we reopen a file"
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
-nnoremap g; g;zz
-
-" Textile filetype
-au BufRead,BufNewFile *.textile set filetype=textile
-
-" =========== END Basic Vim Settings ===========
-
-
-" =========== Gvim Settings =============
-
-" Removing scrollbars
-if has("gui_running")
-    set guitablabel=%-0.12t%M
-    set guioptions-=T
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions+=a
-    set guioptions+=m
-    colo adaryn
-    set listchars=tab:▸\ ,eol:¬         " Invisibles using the Textmate style
-endif
-
-" Source the vimrc file after saving it
-"autocmd bufwritepost .vimrc source ~/.vimrc
-
-" ========== END Gvim Settings ==========
-
-
-" ========== Plugin Settings =========="
-
-" Mapping to NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
-
-" Mini Buffer some settigns."
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-" Rope Plugin settings
-imap <leader>j <ESC>:RopeGotoDefinition<cr>
-nmap <leader>j <ESC>:RopeGotoDefinition<cr>
-
-" Tagbar key bindings."
-nmap <leader>l <ESC>:TagbarToggle<cr>
-imap <leader>l <ESC>:TagbarToggle<cr>i
-
-
-" =========== END Plugin Settings =========="
-"
-"================= VAM Setup Functions ==========================="
-fun! EnsureVamIsOnDisk(vam_install_path)
-  " windows users may want to use http://mawercer.de/~marc/vam/index.php
-  " to fetch VAM, VAM-known-repositories and the listed plugins
-  " without having to install curl, 7-zip and git tools first
-  " -> BUG [4] (git-less installation)
-  let is_installed_c = "isdirectory(a:vam_install_path.'/vim-addon-manager/autoload')"
-  if eval(is_installed_c)
-    return 1
-  else
-    if 1 == confirm("Clone VAM into ".a:vam_install_path."?","&Y\n&N")
-      " I'm sorry having to add this reminder. Eventually it'll pay off.
-      call confirm("Remind yourself that most plugins ship with ".
-                  \"documentation (README*, doc/*.txt). It is your ".
-                  \"first source of knowledge. If you can't find ".
-                  \"the info you're looking for in reasonable ".
-                  \"time ask maintainers to improve documentation")
-      call mkdir(a:vam_install_path, 'p')
-      execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '.shellescape(a:vam_install_path, 1).'/vim-addon-manager'
-      " VAM runs helptags automatically when you install or update
-      " plugins
-      exec 'helptags '.fnameescape(a:vam_install_path.'/vim-addon-manager/doc')
+    if has('persistent_undo')
+      set undofile              " save undos for files
+      set undolevels=1000       " max number of undos
+      set undoreload=10000      " maximum number lines to save for undo on a buffer reload
     endif
-    return eval(is_installed_c)
-  endif
-endf
 
-fun! SetupVAM()
-  " Set advanced options like this:
-  " let g:vim_addon_manager = {}
-  " let g:vim_addon_manager['key'] = value
+    autocmd BufWinLeave *.* silent! mkview    " make vim save view state
+    autocmd BufWinEnter *.* silent! loadview  " make vim load state
+  " }
+" }
 
-  " Example: drop git sources unless git is in PATH. Same plugins can
-  " be installed from www.vim.org. Lookup MergeSources to get more control
-  " let g:vim_addon_manager['drop_git_sources'] = !executable('git')
-  " let g:vim_addon_manager.debug_activation = 1
+" Vim UI {
+  " Colorscheme {
+    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+      let g:solarized_termcolors=256
+      let g:solarized_termtrans=1
+      let g:solarized_contrast="high"
+      let g:solarized_visibility="high"
+      color solarized           " load solarized colorscheme
+    endif
+  "}
 
-  " VAM install location:
-  let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
-  if !EnsureVamIsOnDisk(vam_install_path)
-    echohl ErrorMsg
-    echomsg "No VAM found!"
-    echohl NONE
-    return
-  endif
-  exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
+  set showmode                " show the mode
+  set cursorline              " highlight the cursor line
 
-  " Tell VAM which plugins to fetch & load:
-  let addons = ['snipmate-snippets',  'minibufexplorer',  'Command-T',  'Syntastic',  'fugitive',  'The_NERD_tree',  'The_NERD_Commenter',  'Tagbar',  'simple_pairs',  'Better_Javascript_Indentation',  'Textile_for_VIM',  'vividchalk', 'jshint%3576']
+  set foldenable              " auto fold code
+  set vb t_vb=                " disable visualbeep
 
-  call vam#ActivateAddons(addons, {'auto_install' : 0})
-  " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
+  " Status line {
+    if has('cmdline_info')
+      set ruler                   " show ruler information
+      set showcmd                 " show partial commands in status line
+    endif
 
-  " Addons are put into vam_install_path/plugin-name directory
-  " unless those directories exist. Then they are activated.
-  " Activating means adding addon dirs to rtp and do some additional
-  " magic
+    if has('statusline')
+      set laststatus=2
 
-  " How to find addon names?
-  " - look up source from pool
-  " - (<c-x><c-p> complete plugin names):
-  " You can use name rewritings to point to sources:
-  "    ..ActivateAddons(["github:foo", .. => github://foo/vim-addon-foo
-  "    ..ActivateAddons(["github:user/repo", .. => github://user/repo
-  " Also see section "2.2. names of addons and addon sources" in VAM's documentation
-endfun
+      set statusline=%<%f\        " filename
+      set statusline+=%w%h%m%r    " options
+      set statusline+=%{fugitive#statusline()} " Git status
+      set statusline+=\ [%{&ff}/%Y] " filetype
+      set statusline+=\ [%{getcwd()}] " current dir
+      set statusline+=%=%30(%=\:%b\ %n%y%m%r%w\ (%l,%c%V)\ %p%%%)
+    endif
+  " }
 
-call SetupVAM()
-" experimental [E1]: load plugins lazily depending on filetype, See
-" NOTES
-" experimental [E2]: run after gui has been started (gvim) [3]
-" option1:  au VimEnter * call SetupVAM()
-" option2:  au GUIEnter * call SetupVAM()
-" See BUGS sections below [*]
-" Vim 7.0 users see BUGS section [3]
+  set backspace=indent,eol,start  " appropriate backspace
+  set linespace=0                 " no space between lines
+  set nu                          " show linenumbers
+  set showmatch                   " show matching brackets
+  set incsearch                   " search as you type
+  set hlsearch                    " highlight search
+  set winminheight=0              " windows can be 0 line high
+  set ignorecase                  " case insensitive search
+  set smartcase                   " case sensitive when uc present
+  set wildmenu                    " show list instead of just completing
+  set wildmode=list:longest,full  " command <Tab> completition, list matches, then longest common part, then all
+  set scrolloff=3                 " minimum lines to keep above and below cursor
+
+  set list                        " display unprintable characters
+  set listchars=tab:,.,trail:.,extends:#,nbsp:. "Highlight probelmatic whitespace
+" }
+
+" Formatting {
+  set nowrap        " wrap long lines
+  set autoindent    " indent at the same level as the previous line
+
+  " Tab Settings {
+    set tabstop=2         " an indentation every 2 columns
+    set shiftwidth=2      " use indents of 2 spaces
+    set softtabstop=2     " let backspace delete indent
+    set expandtab         " tabs are spaces
+    set pastetoggle=<F12> " paste with correct indentation
+  " }
+
+  " Remove trailing whitespaces and ^M chars
+  autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,$),'substitute(v:val,\s\+$,,)'))
+  autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+" }
+
+" Key mappings {
+  nnoremap Y y$     " Yank from cursor to the end of the file, to be consistent with C and D
+
+  " Fold levels {
+    nmap <leader>f0 :set foldlevel=0<CR>
+    nmap <leader>f1 :set foldlevel=1<CR>
+    nmap <leader>f2 :set foldlevel=2<CR>
+    nmap <leader>f3 :set foldlevel=3<CR>
+    nmap <leader>f4 :set foldlevel=4<CR>
+    nmap <leader>f5 :set foldlevel=5<CR>
+    nmap <leader>f6 :set foldlevel=6<CR>
+    nmap <leader>f7 :set foldlevel=7<CR>
+    nmap <leader>f8 :set foldlevel=8<CR>
+    nmap <leader>f9 :set foldlevel=9<CR>
+  " }
+
+  nmap <silent> <leader>/ :let @/=''<CR>  " Remove highlights for the current term
+" }
+
+" Plugin Configurations {
+" }

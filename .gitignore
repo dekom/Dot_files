@@ -1,4 +1,5 @@
 *~
 *.swp
 
-vim-files/vim/vim-addons/
+vim/bundle/
+vim/view/

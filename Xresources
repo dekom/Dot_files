@@ -10,3 +10,4 @@ xterm*faceSize: 8
 *VT100.colorULMode: true
 *VT100.colorUL: cyan
 *VT100.verBoldColors: 6
+*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
