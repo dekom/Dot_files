@@ -30,6 +30,7 @@
 " }
 
 " General {
+  set encoding=utf-8
   set background=dark         " Assume a dark background
   filetype plugin indent on   " Automatically detect file types.
   syntax on                   " syntax highlight
@@ -87,6 +88,8 @@
       set statusline+=\ [%{getcwd()}] " current dir
       set statusline+=%=%30(%=\:%b\ %n%y%m%r%w\ (%l,%c%V)\ %p%%%)
     endif
+
+    set fillchars+=stl:\ ,stlnc:\ 
   " }
 
   set backspace=indent,eol,start  " appropriate backspace

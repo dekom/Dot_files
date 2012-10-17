@@ -35,7 +35,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init(awful.util.getdir("config") .. "/themes/nice-and-clean-theme/theme.lua")
+beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -101,11 +101,11 @@ mytextclock = awful.widget.textclock({ align = "right" })
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
- --Battery Monitor
+-- Battery Monitor
 mybattery = widget({ type = "textbox" })
 vicious.register(mybattery, vicious.widgets.bat, " $2%[$1]", 61, "BAT0")
 
- --Volume Monitor
+-- Volume Monitor
 mywifi = widget({ type = "textbox" })
 vicious.register( mywifi, vicious.widgets.wifi, 
                   " ${ssid}:${sign} ", 5, 
@@ -114,7 +114,7 @@ vicious.register( mywifi, vicious.widgets.wifi,
 -- Weather Monitor
 myweather = widget({ type = "textbox" })
 vicious.register( myweather, vicious.widgets.weather, 
-                  " (${tempf}F,${tempc}C)", 60*60 + 13,
+                  "(${tempf}F,${tempc}C)", 60*60 + 13,
                   "KPIT")
 
 -- Create a wibox for each screen and add it

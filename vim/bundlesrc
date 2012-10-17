@@ -20,7 +20,7 @@
   Bundle 'gmarik/vundle'
 " }
 
-" General {
+ "General {
   Bundle 'altercation/vim-colors-solarized'
   Bundle 'tpope/vim-surround'
   Bundle 'spf13/vim-colors'
@@ -28,13 +28,13 @@
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'nathanaelkane/vim-indent-guides'
   Bundle 'myusuf3/numbers.vim'
-" }
+ "}
 
-" Programming {
+ "Programming {
   Bundle 'scrooloose/syntastic'
   Bundle 'tpope/vim-fugitive'
   Bundle 'scrooloose/nerdcommenter'
   Bundle 'Townk/vim-autoclose'
   Bundle 'scrooloose/nerdtree'
   Bundle 'majutsushi/tagbar'
-" }
+ "}
