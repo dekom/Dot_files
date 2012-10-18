@@ -6,7 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-vicious = require("vicious")
+local vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -35,7 +35,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/nice-and-clean-theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xterm"
@@ -48,6 +48,18 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+
+local separator = widget({ type = "textbox"  })
+separator.text = " | "
+
+-- {{{ Function declaration
+-- Test if a file exists for reading (not sure if directories are affected)
+function file_exists(name)
+  local f=io.open(name, "r")
+  if f~=nil then io.close(f) return true else return false end
+end
+-- }}}
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
@@ -69,10 +81,12 @@ layouts =
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
+tags = {
+  names = { "main", "email", "skype", "office", 5, 6, "configs", "network", 9 }
+}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
+    tags[s] = awful.tag(tags.names, s, layouts[2])
 end
 -- }}}
 
@@ -103,18 +117,26 @@ mysystray = widget({ type = "systray" })
 
 -- Battery Monitor
 mybattery = widget({ type = "textbox" })
-vicious.register(mybattery, vicious.widgets.bat, " $2%[$1]", 61, "BAT0")
+if file_exists("/sys/class/power_supply/BAT0") then
+  vicious.register(mybattery, vicious.widgets.bat, " $2%[$1] ", 61, "BAT0")
+else
+  mybattery = nil
+end
 
--- Volume Monitor
+-- Wifi Monitor
 mywifi = widget({ type = "textbox" })
-vicious.register( mywifi, vicious.widgets.wifi, 
-                  " ${ssid}:${sign} ", 5, 
-                  "wlan0")
+if file_exists("/sys/class/net/wlan0") then
+  vicious.register( mywifi, vicious.widgets.wifi, 
+                    " ${ssid}:${sign} ", 5, 
+                    "wlan0")
+else
+  mywifi = nil
+end
 
 -- Weather Monitor
 myweather = widget({ type = "textbox" })
 vicious.register( myweather, vicious.widgets.weather, 
-                  "(${tempf}F,${tempc}C)", 60*60 + 13,
+                  " (${tempf}F,${tempc}C)", 60*60 + 13,
                   "KPIT")
 
 -- Create a wibox for each screen and add it

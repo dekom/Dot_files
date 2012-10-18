@@ -143,6 +143,15 @@
   " }
 
   nmap <silent> <leader>/ :let @/=''<CR>  " Remove highlights for the current term
+
+  " Tagbar {
+    nmap <leader>t :TagbarToggle<CR>      " Toggle the tagbar
+  " }
+
+  " NERDTree {
+    nmap <leader>n :NERDTreeToggle<CR>    " Toggle the nerd tree
+  "}
+
 " }
 
 " Plugin Configurations {
