@@ -37,7 +37,7 @@
   Bundle 'scrooloose/nerdtree'
   Bundle 'majutsushi/tagbar'
   Bundle 'Shougo/neocomplcache'
-  Bundle 'Shougo/neocomplcache-snippets-complete'
+  Bundle 'Shougo/neosnippet'
  "}
 
  "JavaScript {
