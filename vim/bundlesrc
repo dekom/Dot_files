@@ -42,4 +42,5 @@
 
  "JavaScript {
   Bundle 'pangloss/vim-javascript'
+  Bundle 'walm/jshint.vim'
  "}
