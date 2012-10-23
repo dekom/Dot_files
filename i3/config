@@ -24,7 +24,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # personal keybindings
-bindsym $mod+z move scratchpad
+bindsym $mod+shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+c exec quickswitch.py
 
