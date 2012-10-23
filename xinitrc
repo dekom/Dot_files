@@ -11,6 +11,8 @@ fi
 # Load xorg resources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# Set terminal
-export TERMINAL=xterm
-exec i3
+# Execute i3wm, without startup notification
+exec --no-startup-id i3
+
+# Change the background image
+sh ~/.fehbg &
