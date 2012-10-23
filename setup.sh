@@ -17,3 +17,7 @@ ln -sin $(pwd)/Xresources $HOME/.Xresources
 ln -sin $(pwd)/xinitrc $HOME/.xinitrc
 
 ln -sin $(pwd)/awesome $HOME/.config/awesome
+
+ln -sin $(pwd)/rvmrc $HOME/.rvmrc
+
+ln -sin $(pwd)/i3 $HOME/.i3

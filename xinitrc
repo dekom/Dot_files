@@ -11,4 +11,6 @@ fi
 # Load xorg resources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-exec awesome
+# Set terminal
+export TERMINAL=xterm
+exec i3
