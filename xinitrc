@@ -11,8 +11,5 @@ fi
 # Load xorg resources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# Execute i3wm, without startup notification
+# Execute i3wm
 exec i3
-
-# Change the background image
-sh ~/.fehbg &
