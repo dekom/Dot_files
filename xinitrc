@@ -12,7 +12,7 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # Execute i3wm, without startup notification
-exec --no-startup-id i3
+exec i3
 
 # Change the background image
 sh ~/.fehbg &
