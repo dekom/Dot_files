@@ -27,6 +27,7 @@
   Bundle 'Lokaltog/vim-powerline'
   Bundle 'Lokaltog/vim-easymotion'
   Bundle 'nathanaelkane/vim-indent-guides'
+  Bundle 'fholgado/minibufexpl.vim'
  "}
 
  "Programming {
