@@ -154,3 +154,4 @@ bar {
 exec --no-startup-id nm-applet
 exec --no-startup-id skype
 exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id dropboxd
