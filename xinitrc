@@ -11,5 +11,11 @@ fi
 # Load xorg resources
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+# Setup ibus
+export LC_CTYPE="en_US.UTF-8"
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+
 # Execute i3wm
 exec i3
