@@ -32,8 +32,10 @@ bindsym $mod+c exec --no-startup-id quickswitch.py
 bindsym $mod+g exec --no-startup-id chromium
 bindsym $mod+shift+g exec --no-startup-id chromium -incognito
 
-# System Lock
-bindsym $mod+ctrl+shift+l exec i3lock && sudo pm-suspend
+# System keybindings
+bindsym $mod+ctrl+shift+l exec "i3lock && sudo pm-suspend"
+bindsym $mod+ctrl+shift+r exec "i3-nagbar -m 'Reboot?' -b 'Yes, reboot.' 'sudo reboot'"
+bindsym $mod+ctrl+shift+s exec "i3-nagbar -m 'Shutdown?' -b 'Yes, shutdown.' 'sudo poweroff'"
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id xterm
