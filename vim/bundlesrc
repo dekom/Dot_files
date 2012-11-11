@@ -45,3 +45,7 @@
   Bundle 'pangloss/vim-javascript'
   Bundle 'walm/jshint.vim'
  "}
+
+ " Web framework Templates {
+  Bundle 'digitaltoad/vim-jade'
+ " } "

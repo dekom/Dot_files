@@ -42,7 +42,7 @@ source $ZSH/oh-my-zsh.sh
 # Customizations
 EDITOR='$(which vim)'
 
-PATH=$HOME/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/local:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Aliases
 alias ls='ls -p'
