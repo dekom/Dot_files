@@ -111,7 +111,7 @@
 " }
 
 " Formatting {
-  set nowrap        " wrap long lines
+  set wrap        " wrap long lines
   set autoindent    " indent at the same level as the previous line
   set textwidth=78
 
