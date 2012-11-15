@@ -61,3 +61,6 @@ eval $(ssh-agent) &> /dev/null
 case "$TERM" in
   xterm*) TERM=xterm-256color
 esac
+
+# Wordnik API key
+export WORDNIK_API=d25b766254dd7337441237e86ca0f9460f6037ff7432ae240
