@@ -38,7 +38,7 @@ bindsym $mod+ctrl+shift+r exec --no-startup-id "i3-nagbar -m 'Reboot?' -b 'Yes, 
 bindsym $mod+ctrl+shift+s exec --no-startup-id "i3-nagbar -m 'Shutdown?' -b 'Yes, shutdown.' 'sudo poweroff'"
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id xterm
+bindsym $mod+Return exec --no-startup-id lxterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
