@@ -42,7 +42,7 @@ source $ZSH/oh-my-zsh.sh
 # Customizations
 EDITOR='$(which vim)'
 
-PATH=$HOME/local:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/local:/opt/**/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Aliases
 alias ls='ls -p'
@@ -64,3 +64,4 @@ esac
 
 # Wordnik API key
 export WORDNIK_API=d25b766254dd7337441237e86ca0f9460f6037ff7432ae240
+export GOPATH=$HOME/go
