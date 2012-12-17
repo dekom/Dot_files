@@ -42,7 +42,7 @@ source $ZSH/oh-my-zsh.sh
 # Customizations
 EDITOR='$(which vim)'
 
-PATH=$HOME/local:/opt/**/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/local:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Aliases
 alias ls='ls -p'
@@ -66,14 +66,14 @@ export GOPATH=$HOME/go
 
 # Man pages with colors
 man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-			man "$@"
+    env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+      man "$@"
 }
 
